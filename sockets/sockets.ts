@@ -49,7 +49,7 @@ const transporter = nodemailer.createTransport({
       user: 'noreply.covidreports@gmail.com',
       pass: 'covidreports11'
     }
-  });
+});
 
 function configEmail(country: string, email: string, newCase: any){
     const token = jwt.sign( { country, email }, 'seed', { expiresIn: '1year' });

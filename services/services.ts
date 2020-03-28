@@ -41,9 +41,9 @@ const updateDatabase = () => {
     console.log('Actualizando...');
     
     if ( isNewDeaths || isNewCases || isNewRecovered ) {
-        // socket.updateGlobalCases();
-        // socket.updateRanking();
-        // socket.updateLatesCases();
+        socket.updateGlobalCases();
+        socket.updateRanking();
+        socket.updateLatesCases();
     }
 
     let actualDay = moment.utc(new Date()).tz('America/Mexico_City');
