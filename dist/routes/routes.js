@@ -45,6 +45,17 @@ router.post('/soport', (req, res) => {
         ok: true
     });
 });
+router.get('/allcountries', (req, res) => {
+    controller.getAllCountriesName((err, countries) => {
+        if (err) {
+            return res.json({ ok: false, err });
+        }
+        return res.status(200).json({
+            ok: true,
+            countries
+        });
+    });
+});
 router.get('/countries', (req, res) => {
     controller.getAllCountries((err, countries) => {
         if (err) {

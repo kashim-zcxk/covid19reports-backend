@@ -13,6 +13,11 @@ exports.getLatestCases = (callback) => {
         .limit(9)
         .exec(callback);
 };
+exports.getAllCountriesName = (callback) => {
+    Country.find({}, 'country_name')
+        .sort({ 'country_name': 1 })
+        .exec(callback);
+};
 exports.getGlobalCases = (callback) => {
     Country.find()
         .map((countries) => {

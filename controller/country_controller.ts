@@ -14,6 +14,12 @@ export const getLatestCases = (callback: Function) => {
     .exec(callback);
 }
 
+export const getAllCountriesName = (callback: Function) => {
+    Country.find({}, 'country_name')
+    .sort( { 'country_name': 1 })
+    .exec(callback);
+};
+
 export const getGlobalCases = (callback: Function) => {
     Country.find()
     .map((countries: any[]) => {
