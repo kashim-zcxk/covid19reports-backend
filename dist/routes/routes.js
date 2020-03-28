@@ -10,7 +10,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const controller = __importStar(require("../controller/country_controller"));
 const router = express_1.Router();
+const nodemailer = require('nodemailer');
 const jwt = require('jsonwebtoken');
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'noreply.covidreports@gmail.com',
+        pass: 'covidreports11'
+    }
+});
 router.get('/cases', (req, res) => {
     controller.getLatestCases((err, cases) => {
         if (err) {
@@ -26,6 +34,15 @@ router.get('/visitas', (req, res) => {
     return res.status(200).json({
         ok: true,
         visitas: process.env.VISITAS
+    });
+});
+router.post('/soport', (req, res) => {
+    const email = req.body.email;
+    const msg = req.body.msg;
+    let msgconfig = configEmail(email, msg);
+    sendEmail(msgconfig);
+    return res.status(200).json({
+        ok: true
     });
 });
 router.get('/countries', (req, res) => {
@@ -116,4 +133,25 @@ router.get('/global', (req, res) => {
         });
     });
 });
+function configEmail(email, msg) {
+    const mailOptions = {
+        from: 'noreply.sectec@gmail.com',
+        to: 'aldaprojects@hotmail.com',
+        subject: `NEW REPORT ABOUT SOPORT FROM ${email}`,
+        html: `
+           <p> ${msg} </p>
+        `
+    };
+    return mailOptions;
+}
+function sendEmail(mailOptions) {
+    transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+            console.log(error);
+        }
+        else {
+            console.log('Email sent: ' + info.response);
+        }
+    });
+}
 exports.default = router;
