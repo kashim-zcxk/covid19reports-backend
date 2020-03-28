@@ -23,6 +23,7 @@ class Server {
         this.io.on('connection', client => {
             console.log('Cliente conectado');
             process.env.VISITAS = (Number(process.env.VISITAS) + 1).toString();
+            console.log(process.env.VISITAS);
             // socket.mensaje(client);
             client.on('disconnect', () => {
                 console.log('Cliente desconectado');
