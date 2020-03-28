@@ -22,6 +22,12 @@ router.get('/cases', (req, res) => {
         });
     });
 });
+router.get('/visitas', (req, res) => {
+    return res.status(200).json({
+        ok: true,
+        visitas: process.env.VISITAS
+    });
+});
 router.get('/countries', (req, res) => {
     controller.getAllCountries((err, countries) => {
         if (err) {
