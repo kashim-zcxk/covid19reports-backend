@@ -1,5 +1,7 @@
 export const SERVER_PORT: number = Number( process.env.PORT ) || 3000;
 
+process.env.VISITAS = "0";
+
 export let URL_DB: string;
 process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
 

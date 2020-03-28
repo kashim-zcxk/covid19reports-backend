@@ -19,6 +19,13 @@ router.get('/cases', (req: Request, res: Response) => {
     });
 });
 
+router.get('/visitas', (req: Request, res: Response) => {
+    return res.status(200).json({
+        ok: true,
+        visitas: process.env.VISITAS
+    })
+});
+
 router.get('/countries', (req: Request, res: Response) => {
 
     controller.getAllCountries((err: any, countries: any) => {
