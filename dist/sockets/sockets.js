@@ -58,7 +58,7 @@ const transporter = nodemailer.createTransport({
 });
 function configEmail(country, email, newCase) {
     const token = jwt.sign({ country, email }, 'seed', { expiresIn: '1year' });
-    const url = `https://covid19-reports.herokuapp.com/cancel/${token}`;
+    const url = `https://covid19-reportes.herokuapp.com/#/unsubscribe/${token}`;
     const mailOptions = {
         from: 'noreply.sectec@gmail.com',
         to: email,
@@ -67,6 +67,7 @@ function configEmail(country, email, newCase) {
             <p> Nuevos casos: <strong>${newCase.new_cases} </strong> </p> 
             <p> Total: ${newCase.total_cases} </p>
             <p> Fecha: ${new Date(newCase.date).toLocaleString()} </p>
+            <p> Visita nuestra página para más información <a href="https://covid19-reportes.herokuapp.com">Coronavirus reportes en tiempo real</a></p>
             <p> Para dejar de recibir mensajes como este, haz clic en el siguiente link: <a href="${url}"> ${url} </a></p>
         `
     };
