@@ -41,9 +41,9 @@ const updateDatabase = () => {
     console.log('Actualizando...');
     
     if ( isNewDeaths || isNewCases || isNewRecovered ) {
-        socket.updateGlobalCases();
-        socket.updateRanking();
-        socket.updateLatesCases();
+        // socket.updateGlobalCases();
+        // socket.updateRanking();
+        // socket.updateLatesCases();
     }
 
     let actualDay = moment.utc(new Date()).tz('America/Mexico_City');
@@ -65,7 +65,7 @@ const updateDatabase = () => {
             }
 
             // console.log(countries[0].country_name);
-            countries[0].cases = "82288";
+            // countries[0].cases = "82288";
 
             Country.find((err: any, countriesDB: any) => {
 
@@ -140,6 +140,7 @@ const updateDatabase = () => {
 
                                 }
                                 if ( isNewCasesB || isNewDeathsB || isNewRecoveredB ) {
+                                    console.log('si');
                                     countriesDB[j].save();
                                 } 
                                 countriesDB.splice(j, 1);
