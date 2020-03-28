@@ -58,7 +58,7 @@ const transporter = nodemailer.createTransport({
 });
 function configEmail(country, email, newCase) {
     const token = jwt.sign({ country, email }, 'seed', { expiresIn: '1year' });
-    const url = `https://192.168.1.72:3000/cancel/${token}`;
+    const url = `https://covid19-reports.herokuapp.com/cancel/${token}`;
     const mailOptions = {
         from: 'noreply.sectec@gmail.com',
         to: email,
