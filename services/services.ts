@@ -65,7 +65,7 @@ const updateDatabase = () => {
             }
 
             // console.log(countries[0].country_name);
-            // countries[0].cases = "82288";
+            countries[0].cases = "82288";
 
             Country.find((err: any, countriesDB: any) => {
 
