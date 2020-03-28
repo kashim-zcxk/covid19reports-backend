@@ -39,6 +39,7 @@ let isNewRecovered = false;
 const updateDatabase = () => {
     console.log('Actualizando...');
     if (isNewDeaths || isNewCases || isNewRecovered) {
+        console.log('sockets');
         socket.updateGlobalCases();
         socket.updateRanking();
         socket.updateLatesCases();
@@ -60,7 +61,7 @@ const updateDatabase = () => {
                 return;
             }
             // console.log(countries[0].country_name);
-            countries[0].cases = "82288";
+            // countries[0].cases = "82288";
             Country.find((err, countriesDB) => {
                 isNewCases = false;
                 isNewDeaths = false;
@@ -121,7 +122,6 @@ const updateDatabase = () => {
                                     countriesDB[j].cases = newCases;
                                 }
                                 if (isNewCasesB || isNewDeathsB || isNewRecoveredB) {
-                                    console.log('si');
                                     countriesDB[j].save();
                                 }
                                 countriesDB.splice(j, 1);
