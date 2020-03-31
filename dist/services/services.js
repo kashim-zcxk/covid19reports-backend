@@ -60,8 +60,6 @@ const updateDatabase = () => {
             catch (e) {
                 return;
             }
-            // console.log(countries[0].country_name);
-            // countries[0].cases = "82288";
             Country.find((err, countriesDB) => {
                 isNewCases = false;
                 isNewDeaths = false;

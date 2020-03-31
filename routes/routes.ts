@@ -1,18 +1,10 @@
 import { Router, Request, Response } from 'express';
 
 import * as controller from '../controller/country_controller';
+import { sendEmail } from '..';
 
 const router = Router();
-const nodemailer = require('nodemailer');
-const jwt = require('jsonwebtoken');
-
-const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: 'noreply.covidreports@gmail.com',
-      pass: 'covidreports11'
-    }
-});
+import jwt from 'jsonwebtoken';
 
 router.get('/cases', (req: Request, res: Response) => {
     
@@ -26,13 +18,6 @@ router.get('/cases', (req: Request, res: Response) => {
             cases
         })
     });
-});
-
-router.get('/visitas', (req: Request, res: Response) => {
-    return res.status(200).json({
-        ok: true,
-        visitas: process.env.VISITAS
-    })
 });
 
 router.post('/soport', (req: Request, res: Response) => {
@@ -186,17 +171,6 @@ function configEmail(email: string, msg: string ){
 
     return mailOptions;
 }
-
-function sendEmail(mailOptions: any) {
-    transporter.sendMail(mailOptions, function(error: any, info: any){
-        if (error) {
-            console.log(error);
-        } else {
-            console.log('Email sent: ' + info.response);
-        }
-    });
-}
-
 
 
 export default router;
