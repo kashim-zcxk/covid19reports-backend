@@ -15,8 +15,8 @@ const environment_1 = require("./global/environment");
 const transporter = nodemailer_1.default.createTransport({
     service: 'gmail',
     auth: {
-        user: 'noreply.covidreports@gmail.com',
-        pass: 'covidreports11'
+        user: 'youremail',
+        pass: 'yourpassword'
     }
 });
 function sendEmail(mailOptions) {

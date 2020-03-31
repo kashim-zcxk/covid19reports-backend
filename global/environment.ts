@@ -4,9 +4,9 @@ export let URL_DB: string;
 process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
 
 if ( process.env.NODE_ENV === 'dev' ) {
-    URL_DB = 'mongodb://localhost/covid';
+    URL_DB = 'mongodb://localhost/[dbname]';
 } else {
-    URL_DB = 'mongodb+srv://aldair:U87sJjtcdl8YHbge@apipuerta-fcejs.mongodb.net/covid';
+    URL_DB = 'mongodb+srv://[name]:U87sJjtcdl8YHbge@apipuerta-fcejs.mongodb.net/[dbname]';
 }
 
 console.log(URL_DB);

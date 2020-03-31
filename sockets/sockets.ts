@@ -40,7 +40,7 @@ export const updateOneCountry = (newCase: any) => {
                     const url = `https://covid19-reportes.herokuapp.com/#/unsubscribe/${token}`;
                 
                     const mailOptions = {
-                        from: 'noreply.sectec@gmail.com',
+                        from: 'email',
                         to: country.subscriptions,
                         subject: `Reporte de nuevos casos sobre COVID-19 para ${ country }`,
                         html: 

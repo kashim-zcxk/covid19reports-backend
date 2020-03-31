@@ -13,8 +13,8 @@ import { URL_DB } from './global/environment';
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'noreply.covidreports@gmail.com',
-      pass: 'covidreports11'
+      user: 'youremail',
+      pass: 'yourpassword'
     }
 });
 

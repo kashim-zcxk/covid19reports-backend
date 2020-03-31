@@ -136,8 +136,8 @@ router.get('/global', (req, res) => {
 });
 function configEmail(email, msg) {
     const mailOptions = {
-        from: 'noreply.sectec@gmail.com',
-        to: 'aldaprojects@hotmail.com',
+        from: 'noreply.covidreports@gmail.com',
+        to: 'email',
         subject: `NEW REPORT ABOUT SOPORT FROM ${email}`,
         html: `
            <p> ${msg} </p>

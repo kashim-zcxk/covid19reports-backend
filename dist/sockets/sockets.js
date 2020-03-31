@@ -45,7 +45,7 @@ exports.updateOneCountry = (newCase) => {
                 const token = jsonwebtoken_1.default.sign({ country: newCase.country_name, email: subscriptions[i] }, 'seed', { expiresIn: '1year' });
                 const url = `https://covid19-reportes.herokuapp.com/#/unsubscribe/${token}`;
                 const mailOptions = {
-                    from: 'noreply.sectec@gmail.com',
+                    from: 'email',
                     to: country.subscriptions,
                     subject: `Reporte de nuevos casos sobre COVID-19 para ${country}`,
                     html: `
